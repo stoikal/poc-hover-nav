@@ -39,7 +39,9 @@ export function AppLayout({ children }: PropsWithChildren) {
                   setHoveredItem(nav.href);
                 }}
                 onMouseLeave={() => {
-                  // setHoveredItem(null);
+                  setTimeout(() => {
+                    setHoveredItem(null);
+                  }, 500);
                 }}
               >
                 <Link
