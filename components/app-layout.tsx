@@ -23,17 +23,16 @@ export function AppLayout({ children }: PropsWithChildren) {
 
   // Listen to route changes
   useEffect(() => {
-    console.log('Route changed to:', pathname);
-    
+    console.log("Route changed to:", pathname);
+
     // Reset any hover state when route changes
     setHoveredItem(null);
-    
+
     // You can add other route change logic here:
     // - Close mobile menu
     // - Reset scroll position
     // - Track analytics
     // - etc.
-    
   }, [pathname]);
 
   const Page = () => {
@@ -60,33 +59,33 @@ export function AppLayout({ children }: PropsWithChildren) {
                   // setTimeout(() => {
                   // }, 500);
                 }}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   backgroundColor: "rgb(219 234 254)", // blue-100
-                  transition: { duration: 0.2 }
+                  transition: { duration: 0.2 },
                 }}
-                whileTap={{ 
+                whileTap={{
                   scale: 0.95,
-                  transition: { duration: 0.1 }
+                  transition: { duration: 0.1 },
                 }}
                 initial={{ opacity: 0, x: -20 }}
-                animate={{ 
-                  opacity: 1, 
+                animate={{
+                  opacity: 1,
                   x: 0,
-                  transition: { delay: index * 0.1, duration: 0.3 }
+                  transition: { delay: index * 0.1, duration: 0.3 },
                 }}
               >
                 {/* Hover background effect */}
                 <motion.div
                   className="absolute inset-0 bg-blue-300 rounded-md"
                   initial={{ scale: 0, opacity: 0 }}
-                  whileHover={{ 
-                    scale: 1, 
+                  whileHover={{
+                    scale: 1,
                     opacity: 0.3,
-                    transition: { duration: 0.2 }
+                    transition: { duration: 0.2 },
                   }}
                 />
-                
+
                 <Link
                   href={nav.href}
                   className="px-4 py-2 inline-block relative z-10 transition-colors duration-200"
@@ -95,9 +94,9 @@ export function AppLayout({ children }: PropsWithChildren) {
                   }}
                 >
                   <motion.span
-                    whileHover={{ 
+                    whileHover={{
                       color: "rgb(30 64 175)", // blue-800
-                      transition: { duration: 0.2 }
+                      transition: { duration: 0.2 },
                     }}
                   >
                     {nav.label}
@@ -133,9 +132,7 @@ export function AppLayout({ children }: PropsWithChildren) {
         {children}
 
         {hoveredItem && (
-          <motion.div 
-            className="absolute inset-0 bg-white"
-          >
+          <motion.div className="absolute inset-0 bg-white">
             <Page />
           </motion.div>
         )}
@@ -144,26 +141,20 @@ export function AppLayout({ children }: PropsWithChildren) {
       <motion.button
         className="bg-blue-950 rounded-2xl h-16 w-16 text-white absolute top-6 left-6 font-medium"
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ 
-          scale: 1.1,
+        whileHover={{
+          scale: 1.05,
           backgroundColor: "rgb(23 37 84)", // blue-900
-          transition: { duration: 0.2 }
+          transition: { duration: 0.2 },
         }}
-        whileTap={{ 
-          scale: 0.9,
-          transition: { duration: 0.1 }
-        }}
-        initial={{ opacity: 0, rotate: -180 }}
-        animate={{ 
-          opacity: 1, 
-          rotate: 0,
-          transition: { duration: 0.5, delay: 0.2 }
+        whileTap={{
+          scale: 1,
+          transition: { duration: 0.1 },
         }}
       >
         <motion.span
-          animate={{ 
+          animate={{
             rotate: isOpen ? 45 : 0,
-            transition: { duration: 0.3 }
+            transition: { duration: 0.3 },
           }}
         >
           menu
