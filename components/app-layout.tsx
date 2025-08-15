@@ -147,7 +147,7 @@ export function AppLayout({ children }: PropsWithChildren) {
           transition: { duration: 0.2 },
         }}
         whileTap={{
-          scale: 1,
+          scale: 0.95,
           transition: { duration: 0.1 },
         }}
       >
